@@ -12,7 +12,7 @@ export function createPostsTemplate() {
 			const postImg = document.createElement("img");
 			postImg.src = post.media[0];
 			postImg.alt = post.title;
-			postImg.classList.add("max-h-50");
+			postImg.classList.add("object-fit-contain", "rounded");
 			postImg.onerror = () => {
 				postImg.classList.add("placeholder");
 			};
