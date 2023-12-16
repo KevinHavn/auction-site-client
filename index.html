@@ -92,7 +92,7 @@
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<form id="loginform">
+							<form id="loginForm">
 								<div class="mb-3">
 									<label for="loginemail" class="form-label">
 										Email address
@@ -100,16 +100,19 @@
 									<input
 										required
 										pattern="[\w\-.]+@(stud.)?noroff.no$"
-										type="loginemail"
+										name="email"
+										type="email"
 										class="form-control"
 										id="loginemail" />
 								</div>
+
 								<div class="mb-3">
 									<label for="loginpassword" class="form-label">Password</label>
 									<input
 										required
-										type="loginpassword"
+										type="password"
 										class="form-control"
+										name="password"
 										id="loginpassword"
 										minlength="8" />
 								</div>
@@ -148,39 +151,47 @@
 						<div class="modal-body">
 							<form id="registerform">
 								<div class="mb-3">
-									<label for="registerEmail" class="form-label">
-										Email address
-									</label>
-									<input
-										required
-										pattern="[\w\-.]+@(stud.)?noroff.no$"
-										type="registerEmail"
-										title="E-Mail address must be @stud.noroff.no or @noroff.no."
-										class="form-control"
-										id="registerEmail" />
-								</div>
-								<div class="mb-3">
-									<label for="registerName" class="form-label">Name</label>
+									<label for="name" class="form-label">Name</label>
 									<input
 										required
 										type="text"
 										class="form-control"
-										id="registerName" />
+										id="name"
+										name="name" />
 								</div>
+
 								<div class="mb-3">
-									<label for="registerPassword" class="form-label">
-										Password
-									</label>
+									<label for="email" class="form-label">Email address</label>
 									<input
 										required
-										type="registerPassword"
+										pattern="[\w\-.]+@(stud.)?noroff.no$"
+										type="email"
+										title="E-Mail address must be @stud.noroff.no or @noroff.no."
 										class="form-control"
-										id="registerPassword"
-										minlength="8" />
+										id="email"
+										name="email" />
 								</div>
+
 								<div class="mb-3">
-									<label class="form-label">Profile Icon URL (optional)</label>
-									<input class="form-control" type="url" />
+									<label class="form-label" for="avatar">
+										Profile Icon URL (optional)
+									</label>
+									<input
+										class="form-control"
+										type="url"
+										id="avatar"
+										name="avatar" />
+								</div>
+
+								<div class="mb-3">
+									<label for="password" class="form-label">Password</label>
+									<input
+										required
+										type="password"
+										class="form-control"
+										id="password"
+										minlength="8"
+										name="password" />
 								</div>
 							</form>
 						</div>
