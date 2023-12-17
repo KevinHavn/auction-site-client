@@ -47,7 +47,7 @@ npm install live-server
 npm run dev
 ```
 
-Building the server is possible with:
+Building the site is possible with:
 
 ```
 npm run build
