@@ -15,31 +15,12 @@
 			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 			crossorigin="anonymous"></script>
 	</head>
-	<body class="bg-secondary">
+	<body class="bg-secondary-subtle">
 		<header>
 			<nav class="navbar navbar-expand-lg bg-primary">
 				<div class="container-fluid">
 					<div class="d-flex">
-						<a class="navbar-brand" href="#">Navbar</a>
-						<button
-							class="navbar-toggler"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="#navbarSupportedContent"
-							aria-controls="navbarSupportedContent"
-							aria-expanded="false"
-							aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="#">
-										Home
-									</a>
-								</li>
-							</ul>
-						</div>
+						<a class="navbar-brand" href="#">Noroff Auction House</a>
 					</div>
 					<div class="d-flex flex-row mx-4 align-items-center">
 						<div class="d-flex flex-row align-items-center">
@@ -169,7 +150,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="loginModalLabel">
+							<h1 class="modal-title fs-5" id="avatarModalLabel">
 								Let's change things up!
 							</h1>
 							<button
@@ -285,7 +266,18 @@
 				</div>
 			</div>
 			<div class="grid text-center m-4">
-				<div class="g-col-2 card p-3"><h1>Hello</h1></div>
+				<div class="g-col-2 card p-3">
+					<h1>Lorem Ipsum</h1>
+					<p>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum."
+					</p>
+				</div>
 				<div class="g-col-6 card p-3">
 					<h1>Here to add a listing?</h1>
 					<h2 id="notLoggedError" class="text-danger">
@@ -293,18 +285,25 @@
 					</h2>
 					<form id="listingForm">
 						<fieldset id="listingFieldset" disabled>
+							<legend>Tell us about what you're auctioning!</legend>
 							<div class="mb-2">
 								<label class="form-label" for="listingTitle">
 									What should your listing be titled?
 								</label>
-								<input type="text" class="form-control" id="listingTitle" />
+								<input
+									type="text"
+									name="title"
+									class="form-control"
+									id="listingTitle"
+									required />
 							</div>
 							<div class="mb-2">
 								<label class="form-label" for="listingDescription">
-									What should your listing's description be?
+									What should your listing's description be? (Optional)
 								</label>
 								<textarea
 									type="text"
+									name="description"
 									class="form-control"
 									id="listingDescription"></textarea>
 							</div>
@@ -312,19 +311,36 @@
 								<label for="listingTime" class="form-label">
 									What time should your listing end at?
 								</label>
-								<input type="datetime-local" class="form-control text-center" />
+								<input
+									id="listingTime"
+									type="datetime-local"
+									name="endsAt"
+									class="form-control text-center"
+									required />
 							</div>
 							<div class="mb-2">
-								<label for="listingMedia" class="form-label">
-									Should your listing have any images? (URL link to image)
-									(Optional)
-								</label>
-								<input type="url" class="form-control" id="listingMedia" />
+								<button
+									type="submit"
+									form="listingForm"
+									class="btn btn-success">
+									Add listing
+								</button>
 							</div>
 						</fieldset>
 					</form>
 				</div>
-				<div class="g-col-4 card p-3"><h1>Hello</h1></div>
+				<div class="g-col-4 card p-3">
+					<h1>Lorem Ipsum</h1>
+					<p>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum."
+					</p>
+				</div>
 			</div>
 			<div class="grid mt-2" id="listingsGrid"></div>
 		</main>
