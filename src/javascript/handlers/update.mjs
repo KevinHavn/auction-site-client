@@ -9,8 +9,6 @@ export function setUpdateFormListener() {
 
         const formData = new FormData(event.target);
         const updateData = Object.fromEntries(formData.entries());
-        console.log(updateData)
-
         updateAvatar(updateData);
     });
 }
