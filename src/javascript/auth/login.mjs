@@ -1,11 +1,11 @@
 import { apiUrl } from "../constants.mjs";
+import { loginHtml } from "../listings/templates/loginhtml.mjs";
 import * as storage from "../storage/index.mjs";
 
 const action = "auction/auth/login";
 const method = "post";
 
 export async function login(profile) {
-	console.log("works");
 	const loginUrl = apiUrl + action;
 	const body = JSON.stringify(profile);
 
@@ -15,9 +15,12 @@ export async function login(profile) {
 		body,
 	});
 
-	const { accessToken, ...user } = await response.json();
+	const { accessToken, credits, ...user } = await response.json();
 
 	storage.save("token", accessToken);
+	storage.save("credits", credits);
 	storage.save("profile", user);
+
 	alert("Login complete!");
+	loginHtml();
 }
