@@ -41,33 +41,61 @@
 							</ul>
 						</div>
 					</div>
-					<div class="dropdown me-4">
-						<a
-							class="dropdown-toggle"
-							href="#"
-							role="button"
-							data-bs-toggle="dropdown"
-							aria-expanded="false">
-							User Information
-						</a>
-						<ul class="dropdown-menu">
-							<li>
+					<div class="d-flex flex-row mx-4 align-items-center">
+						<div class="d-flex flex-row align-items-center">
+							<div class="me-2">
+								<img
+									id="userAvatar"
+									alt="User Avatar"
+									class="d-none img-fluid avatar" />
+							</div>
+							<div class="dropdown me-4">
 								<a
-									class="dropdown-item"
-									href="#loginModal"
-									data-bs-toggle="modal">
-									Login
+									class="dropdown-toggle"
+									href="#"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+									id="userInfo">
+									User Information
 								</a>
-							</li>
-							<li>
-								<a
-									class="dropdown-item"
-									href="#registerModal"
-									data-bs-toggle="modal">
-									Register
-								</a>
-							</li>
-						</ul>
+								<ul class="dropdown-menu">
+									<li id="loginMenu">
+										<a
+											class="dropdown-item"
+											href="#loginModal"
+											data-bs-toggle="modal">
+											Login
+										</a>
+									</li>
+									<li id="registerMenu">
+										<a
+											class="dropdown-item"
+											href="#registerModal"
+											data-bs-toggle="modal">
+											Register
+										</a>
+									</li>
+									<li class="d-none" id="logoutMenu">
+										<button
+											class="dropdown-item"
+											id="logoutButton"
+											role="button">
+											Logout
+										</button>
+									</li>
+									<li class="d-none" id="avatarMenu">
+										<a
+											class="dropdown-item"
+											href="#avatarModal"
+											data-bs-toggle="modal">
+											Update Avatar
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="d-none mx-2" id="coinsTotal"></div>
 					</div>
 				</div>
 			</nav>
@@ -125,8 +153,55 @@
 								data-bs-dismiss="modal">
 								Close
 							</button>
-							<button type="submit" form="loginform" class="btn btn-success">
+							<button type="submit" form="loginForm" class="btn btn-success">
 								Login
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="modal fade"
+				id="avatarModal"
+				tabindex="-1"
+				aria-labelledby="avatarModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="loginModalLabel">
+								Let's change things up!
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="updateForm">
+								<div class="mb-3">
+									<label for="updateAvatarUrl" class="form-label">
+										New avatar URL
+									</label>
+									<input
+										required
+										name="avatar"
+										type="url"
+										class="form-control"
+										id="updateAvatarUrl" />
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+							<button type="submit" form="updateForm" class="btn btn-success">
+								Submit update
 							</button>
 						</div>
 					</div>
@@ -213,35 +288,40 @@
 				<div class="g-col-2 card p-3"><h1>Hello</h1></div>
 				<div class="g-col-6 card p-3">
 					<h1>Here to add a listing?</h1>
-					<form>
-						<div class="mb-2">
-							<label class="form-label" for="listingTitle">
-								What should your listing be titled?
-							</label>
-							<input type="text" class="form-control" id="listingTitle" />
-						</div>
-						<div class="mb-2">
-							<label class="form-label" for="listingDescription">
-								What should your listing's description be?
-							</label>
-							<textarea
-								type="text"
-								class="form-control"
-								id="listingDescription"></textarea>
-						</div>
-						<div class="mb-2">
-							<label for="listingTime" class="form-label">
-								What time should your listing end at?
-							</label>
-							<input type="datetime-local" class="form-control text-center" />
-						</div>
-						<div class="mb-2">
-							<label for="listingMedia" class="form-label">
-								Should your listing have any images? (URL link to image)
-								(Optional)
-							</label>
-							<input type="url" class="form-control" id="listingMedia" />
-						</div>
+					<h2 id="notLoggedError" class="text-danger">
+						Must be logged in to post
+					</h2>
+					<form id="listingForm">
+						<fieldset id="listingFieldset" disabled>
+							<div class="mb-2">
+								<label class="form-label" for="listingTitle">
+									What should your listing be titled?
+								</label>
+								<input type="text" class="form-control" id="listingTitle" />
+							</div>
+							<div class="mb-2">
+								<label class="form-label" for="listingDescription">
+									What should your listing's description be?
+								</label>
+								<textarea
+									type="text"
+									class="form-control"
+									id="listingDescription"></textarea>
+							</div>
+							<div class="mb-2">
+								<label for="listingTime" class="form-label">
+									What time should your listing end at?
+								</label>
+								<input type="datetime-local" class="form-control text-center" />
+							</div>
+							<div class="mb-2">
+								<label for="listingMedia" class="form-label">
+									Should your listing have any images? (URL link to image)
+									(Optional)
+								</label>
+								<input type="url" class="form-control" id="listingMedia" />
+							</div>
+						</fieldset>
 					</form>
 				</div>
 				<div class="g-col-4 card p-3"><h1>Hello</h1></div>
